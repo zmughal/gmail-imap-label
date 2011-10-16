@@ -1,18 +1,19 @@
 #!/usr/bin/perl
 use warnings;
 use strict;
-use POE qw(Component::Server::TCP Component::Client::TCP);
+use POE qw(Component::Server::TCP Component::Client::TCP Filter::SSL);
 
 
-# Spawn the forwarder server on port 1110.  When new connections
+# Spawn the forwarder server on port 10143.  When new connections
 # arrive, spawn clients to connect them to their destination.
 POE::Component::Server::TCP->new(
-  Port            => 1110,
+  Port            => 10143,
   ClientConnected => sub {
     my ($heap, $session) = @_[HEAP, SESSION];
     logevent('server got connection', $session);
-    spawn_client_side();
+    $heap->{client_id} = spawn_client_side();
   },
+  ClientFilter => [ "POE::Filter::Line", Literal => "\x0D\x0A" ],
   ClientInput => sub {
     my ($kernel, $session, $heap, $input) = @_[KERNEL, SESSION, HEAP, ARG0];
     logevent('server got input', $session, $input);
@@ -29,25 +30,25 @@ POE::Component::Server::TCP->new(
       logevent("sending to server", $_[SESSION]);
       $heap->{client}->put($stuff);
     },
-    _child => sub {
-      my ($heap, $child_op, $child) = @_[HEAP, ARG0, ARG1];
-      if ($child_op eq "create") {
-        $heap->{client_id} = $child->ID;
-      }
-    },
   },
 );
 
 sub spawn_client_side {
   POE::Component::Client::TCP->new(
-    RemoteAddress => 'localhost',
-    RemotePort    => 6667,
+    RemoteAddress => 'imap.gmail.com',
+    RemotePort    => 993,
+    Filter        => POE::Filter::Stackable->new(
+        Filters => [
+            POE::Filter::SSL->new( client => 1 ),
+            POE::Filter::Line->new( Literal => "\x0D\x0A" ),
+    ]),
     Started       => sub {
       $_[HEAP]->{server_id} = $_[SENDER]->ID;
     },
     Connected => sub {
       my ($heap, $session) = @_[HEAP, SESSION];
       logevent('client connected', $session);
+      $heap->{server}->put('');
     },
     ServerInput => sub {
       my ($kernel, $heap, $session, $input) = @_[KERNEL, HEAP, SESSION, ARG0];
@@ -73,7 +74,7 @@ sub logevent {
   my ($state, $session, $arg) = @_;
   my $id = $session->ID();
   print "session $id $state ";
-  print ": $arg" if (defined $arg);
+  #print ": $arg" if (defined $arg);
   print "\n";
 }
 warn 'running';
