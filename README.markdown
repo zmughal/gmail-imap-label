@@ -15,6 +15,7 @@ connect to that port using the IMAP protocol (without SSL).
 * Perl (tested with 5.12.4, but should work with 5.10)
 * POE
 * POE::Filter::SSL
+* Regexp::Common
 
 # ACK
 Thanks to Paul DeCarlo <http://windotnet.blogspot.com/> for pointing out the

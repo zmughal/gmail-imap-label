@@ -3,6 +3,7 @@ use warnings;
 use strict;
 use POE qw(Component::Server::TCP Component::Client::TCP
 	Filter::SSL Filter::Map);
+use Regexp::Common;
 
 use constant LOCALPORT => 10143;
 
@@ -30,20 +31,18 @@ POE::Component::Server::TCP->new(
 			},
 				Put => sub {
 					my $data = shift;
-					state $in_fetch = 0;
-					state @cur_fetch;
 					my $fetch_re = qr/^\* \d+ FETCH.*{\d+}$/;
-					my $fetch_gm_label = qr/^(\* \d+ FETCH.*)(X-GM-LABELS \([^\)]*\) ?)(.*){(\d+)}$/;
+					my $fetch_gm_label = qr/^(\* \d+ FETCH.*)(X-GM-LABELS $RE{balanced}{-parens=>'()'} ?)(.*){(\d+)}$/;
 					if( $data =~ $fetch_gm_label ) {
 						my $octets = $4;
 						my $new_fetch = "$1$3";
 						#print "$new_fetch\n";
-						(my $x_label = $2) =~ /\(([^\)]*)\)/;
+						(my $x_label = $2) =~ /\((.*)\)/;
 						$x_label = $1;
 						$x_label =~ s,"\\\\Important"\s*,,;
 						$x_label =~ s,"\\\\Sent"\s*,,;
 						$x_label =~ s,"\\\\Starred"\s*,,;
-						$x_label =~ s,"\\\\Inbox"\s*,INBOX,;
+						$x_label =~ s,"\\\\Inbox",INBOX,;
 						$x_label =~ s,&-,&,g;
 						if(length($x_label) > 0) {
 							$x_label = "X-Label: $x_label";
