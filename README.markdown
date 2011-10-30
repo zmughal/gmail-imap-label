@@ -1,6 +1,7 @@
 gmail-imap-label
 # Description
-Proxy that sits between an IMAP client and Gmail's IMAPS server.
+Proxy that sits between an IMAP client and Gmail's IMAPS server and adds GMail
+labels to the X-Label header.
 
 Tested with mutt 1.5.21 (2010-09-15).
 
