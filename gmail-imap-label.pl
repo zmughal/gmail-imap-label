@@ -4,11 +4,12 @@ use strict;
 use POE qw(Component::Server::TCP Component::Client::TCP
 	Filter::SSL Filter::Map);
 
+use constant LOCALPORT => 10143;
 
-# Spawn the forwarder server on port 10143.  When new connections
+# Spawn the forwarder server on port LOCALPORT.  When new connections
 # arrive, spawn clients to connect them to their destination.
 POE::Component::Server::TCP->new(
-	Port            => 10143,
+	Port            => LOCALPORT,
 	ClientConnected => sub {
 		my ($heap, $session) = @_[HEAP, SESSION];
 		#logevent('server got connection', $session);
