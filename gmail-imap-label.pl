@@ -47,7 +47,7 @@ POE::Component::Server::TCP->new(
 						if(length($x_label) > 0) {
 							$x_label = "X-Label: $x_label";
 							#print "$x_label\n";
-							$octets += length($x_label)+2; # 2 more fore line separator
+							$octets += length($x_label)+2; # 2 more for line separator
 							$new_fetch .= "{$octets}";
 							$new_fetch .= "\x0D\x0A";
 							$new_fetch .= $x_label;
