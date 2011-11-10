@@ -108,6 +108,12 @@ sub spawn_client_side {
 			#logevent('client disconnected', $session);
 			$kernel->post($heap->{server_id} => 'shutdown');
 		},
+		ConnectError => sub {
+			my ($operation, $error_number, $error_string) = @_[ARG0..ARG2];
+			my $id = $_[SESSION]->ID;
+			print STDERR "Client $id: $operation error $error_number occurred: $error_string\n";
+			$_[KERNEL]->post($_[HEAP]->{server_id} => 'shutdown');
+		},
 		InlineStates => {
 			send_stuff => sub {
 				my ($heap, $stuff) = @_[HEAP, ARG0];
