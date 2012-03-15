@@ -4,6 +4,8 @@ use strict;
 use POE qw(Component::Server::TCP Component::Client::TCP
 	Filter::SSL Filter::Map);
 use Regexp::Common;
+use Encode::IMAPUTF7;
+use Encode qw/decode encode_utf8/;
 
 use constant LOCALPORT => 10143;
 
@@ -43,11 +45,14 @@ POE::Component::Server::TCP->new(
 						$x_label =~ s,"\\\\Sent"\s*,,;
 						$x_label =~ s,"\\\\Starred"\s*,,;
 						$x_label =~ s,"\\\\Inbox",INBOX,;
-						$x_label =~ s,&-,&,g;
+						# Gmail sends IMAP's modified UTF-7,
+						# need to convert to UTF-8 to satisfy
+						# <http://tools.ietf.org/html/rfc5738> in mutt
+						$x_label = decode('IMAP-UTF-7', $x_label);
 						if(length($x_label) > 0) {
 							$x_label = "X-Label: $x_label";
 							#print "$x_label\n";
-							$octets += length($x_label)+2; # 2 more for line separator
+							$octets += length(encode_utf8($x_label))+2; # 2 more for line separator
 							$new_fetch .= "{$octets}";
 							$new_fetch .= "\x0D\x0A";
 							$new_fetch .= $x_label;

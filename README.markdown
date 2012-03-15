@@ -16,6 +16,7 @@ connect to that port using the IMAP protocol (without SSL).
 * POE
 * POE::Filter::SSL
 * Regexp::Common
+* Encode::IMAPUTF7
 
 # ACK
 Thanks to Paul DeCarlo <http://windotnet.blogspot.com/> for pointing out the
