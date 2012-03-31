@@ -14,8 +14,13 @@ connect to that port using the IMAP protocol (without SSL).
 * GMail account
 * Perl (tested with 5.12.4, but should work with 5.10)
 * POE
-* POE::Filter::SSL
+* POE::Component::SSLify
 * Regexp::Common
+
+For Debian:
+```sh
+apt-get install libpoe-component-sslify-perl libregexp-common-perl
+```
 
 # ACK
 Thanks to Paul DeCarlo <http://windotnet.blogspot.com/> for pointing out the

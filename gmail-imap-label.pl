@@ -2,7 +2,8 @@
 use warnings;
 use strict;
 use POE qw(Component::Server::TCP Component::Client::TCP
-	Filter::SSL Filter::Map);
+	Filter::Stackable Filter::Map);
+use POE::Component::SSLify qw( Client_SSLify );
 use Regexp::Common;
 
 use constant LOCALPORT => 10143;
@@ -83,12 +84,14 @@ POE::Component::Server::TCP->new(
 sub spawn_client_side {
 	POE::Component::Client::TCP->new(
 		RemoteAddress => 'imap.gmail.com',
+		PreConnect => sub {
+			# Convert the socket into an SSL socket.
+			my $socket = eval { Client_SSLify($_[ARG0]) };
+			return if $@; # Disconnect if SSL failed.
+			return $socket;
+		},
 		RemotePort    => 993,
-		Filter        => POE::Filter::Stackable->new(
-			Filters => [
-				POE::Filter::SSL->new( client => 1 ),
-				POE::Filter::Line->new( Literal => "\x0D\x0A" ),
-		]),
+		Filter        => POE::Filter::Line->new( Literal => "\x0D\x0A" ),
 		Started       => sub {
 			$_[HEAP]->{server_id} = $_[SENDER]->ID;
 		},
