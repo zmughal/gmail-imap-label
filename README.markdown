@@ -16,6 +16,7 @@ connect to that port using the IMAP protocol (without SSL).
 * POE
 * POE::Component::SSLify
 * Regexp::Common
+* Encode::IMAPUTF7
 
 For Debian:
 ```sh
