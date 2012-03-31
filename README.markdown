@@ -19,8 +19,8 @@ connect to that port using the IMAP protocol (without SSL).
 * Encode::IMAPUTF7
 
 For Debian:
-```sh
-apt-get install libpoe-component-sslify-perl libregexp-common-perl
+```
+apt-get install libpoe-component-sslify-perl libregexp-common-perl libencode-imaputf7-perl
 ```
 
 # ACK
