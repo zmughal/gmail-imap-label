@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 use warnings;
 use strict;
 use POE qw(Component::Server::TCP Component::Client::TCP
