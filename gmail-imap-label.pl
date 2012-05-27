@@ -27,8 +27,8 @@ POE::Component::Server::TCP->new(
 					my $data = shift;
 					if($data =~ /^\w+ FETCH/) {
 						$data =~ s,(BODY\.PEEK\[[^\]]*\]),$1 X-GM-LABELS,;
-					} elsif($data =~ /^\w+ UID FETCH (\d+) BODY.PEEK\[\]$/) {
-						$data =~ s,(BODY.PEEK\[\]),($1 X-GM-LABELS),;
+					} elsif($data =~ /^\w+ UID FETCH (\d+) \(?BODY.PEEK\[\]\)?$/) {
+						$data =~ s,\(?(BODY.PEEK\[\])\)?,($1 X-GM-LABELS),;
 					}
 					return $data;
 			},
