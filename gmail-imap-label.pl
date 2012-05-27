@@ -81,7 +81,7 @@ POE::Component::Server::TCP->new(
 			#logevent("sending to server", $_[SESSION]
 				#, $stuff
 			#);
-			$heap->{client}->put($stuff);
+			eval { $heap->{client}->put($stuff); };
 		},
 	},
 );
@@ -103,7 +103,7 @@ sub spawn_client_side {
 		Connected => sub {
 			my ($heap, $session) = @_[HEAP, SESSION];
 			#logevent('client connected', $session);
-			$heap->{server}->put('');
+			eval { $heap->{server}->put(''); };
 		},
 		ServerInput => sub {
 			my ($kernel, $heap, $session, $input) = @_[KERNEL, HEAP, SESSION, ARG0];
@@ -126,7 +126,7 @@ sub spawn_client_side {
 			send_stuff => sub {
 				my ($heap, $stuff) = @_[HEAP, ARG0];
 				#logevent("sending to client", $_[SESSION]);
-				$heap->{server}->put($stuff);
+				eval { $heap->{server}->put($stuff); };
 			},
 		},
 	);
