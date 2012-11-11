@@ -1,0 +1,13 @@
+# Copy this to ~/.muttrc and edit
+
+set folder = "imap://localhost:10143"	# LOCALPORT in gmail-imap-label
+set spoolfile = "+INBOX"
+set postponed="+[Gmail]/Drafts"
+
+set imap_user = "user@gmail.com"
+set imap_pass = "password"
+
+set smtp_url = "smtp://user@smtp.gmail.com:587/"
+set smtp_pass = "password"
+
+# vim: ft=muttrc
