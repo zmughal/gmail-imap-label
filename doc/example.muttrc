@@ -10,4 +10,9 @@ set imap_pass = "password"
 set smtp_url = "smtp://user@smtp.gmail.com:587/"
 set smtp_pass = "password"
 
+# show labels in index view: %y, %Y
+set index_format="%4C %Z %3N %{%b %d} %-15.15L (%?M?[%2M]&%4c?) %?y?{%-10.10y} ?%s"
+# show labels in message view
+unignore X-Label
+
 # vim: ft=muttrc
