@@ -1,0 +1,50 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
+use Net::Gmail::IMAP::Label 'run';
+
+__END__
+
+=head1 NAME
+
+gmail-imap-label - IMAP proxy for Google's Gmail that retrieves message labels
+
+=head1 SYNOPSIS
+
+ [options]
+
+ Options:
+   -p, --port port-number   set the local port for the proxy
+   -v, --verbose            set the verbosity level
+   -h, -?, --help           brief help message
+
+=head1 OPTIONS
+
+=over 8
+
+=item B<-p I<port-number>>, B<--port I<port-number>>
+
+Sets the local port for the IMAP proxy.
+
+=item B<-v>, B<--verbose>
+
+Sets the verbosity level. Multiple flags increase the verbosity level
+(e.g. -v, -vv, -vvv).
+
+=item B<-h>, B<-?>, B<--help>
+
+Print a brief help message and exits.
+
+=back
+
+=head1 DESCRIPTION
+
+
+=head1 SEE ALSO
+
+Description of proxy available in L<Net::Gmail::IMAP::Label>
+
+=cut
+

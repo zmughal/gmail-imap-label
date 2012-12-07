@@ -3,12 +3,13 @@ gmail-imap-label
 Proxy that sits between an IMAP client and Gmail's IMAPS server and adds GMail
 labels to the X-Label header.
 
-Tested with mutt 1.5.21 (2010-09-15).
+Tested with mutt (v1.5.21) and offlineimap (v6.3.4).
 
 # Usage
-By default, the proxy starts on port 10143 (as defined by the LOCALPORT
-constant). To use the proxy you will need to set up your e-mail reader to
-connect to that port using the IMAP protocol (without SSL).
+By default, the proxy starts on port 10143, however another port can be
+specified via a command-line option. To use the proxy you will need to set up
+your e-mail reader to connect to that port using the IMAP protocol (without
+SSL).
 
 # Dependencies
 * GMail account
