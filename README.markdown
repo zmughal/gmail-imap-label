@@ -18,10 +18,11 @@ SSL).
 * POE::Component::SSLify
 * Regexp::Common
 * Encode::IMAPUTF7
+* Getopt::Long::Descriptive
 
 For Debian:
 ```
-apt-get install libpoe-component-sslify-perl libregexp-common-perl libencode-imaputf7-perl
+apt-get install libpoe-component-sslify-perl libregexp-common-perl libencode-imaputf7-perl libgetopt-long-descriptive-perl
 ```
 
 # ACK
