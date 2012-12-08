@@ -39,9 +39,6 @@ Print a brief help message and exits.
 
 =back
 
-=head1 DESCRIPTION
-
-
 =head1 SEE ALSO
 
 Description of proxy available in L<Net::Gmail::IMAP::Label>
