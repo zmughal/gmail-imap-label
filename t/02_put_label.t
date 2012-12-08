@@ -42,20 +42,14 @@ q/* 537 FETCH (X-GM-LABELS ("zzzz\"" "\\\\Sent" "zzz)" "zz(") UID 1471 BODY[] {8
 	q/* 537 FETCH (UID 1471 BODY[] {905}/.
 	Net::Gmail::IMAP::Label::Proxy::LINESEP.
 	q/X-Label: "zzzz\"" "zzz)" "zz("/,
-q/* 138 FETCH (X-GM-LABELS ("\\\\Important" "\\\\Sent" "\\\\") UID 36833 BODY[] {841}/ =>
-	q/* 138 FETCH (UID 36833 BODY[] {856}/.
+q/* 138 FETCH (X-GM-LABELS ("\\Important" "\\Sent" "\\") UID 36833 BODY[] {841}/ =>
+	q/* 138 FETCH (X-GM-LABELS ("\\\\Important" "\\\\Sent" "\\\\") UID 36833 BODY[] {858}/.
 	Net::Gmail::IMAP::Label::Proxy::LINESEP.
 	q/X-Label: "\\\\"/,
-q/* 286 FETCH (X-GM-LABELS (Test ")") UID 39560 BODY[] {44795}/ =>
-	q/* 286 FETCH (UID 39560 BODY[] {44814}/.
-	Net::Gmail::IMAP::Label::Proxy::LINESEP.
-	q/X-Label: Test ")"/,
 q/* 283 FETCH (X-GM-LABELS (&- Test) UID 39557 BODY[] {10730}/ =>
-	q/* 283 FETCH (UID 39557 BODY[] {10747}/.
+	q/* 283 FETCH (X-GM-LABELS (&- Test) UID 39557 BODY[] {10747}/.
 	Net::Gmail::IMAP::Label::Proxy::LINESEP.
 	q/X-Label: & Test/,
-q/* 286 FETCH (X-GM-LABELS () UID 39560 BODY[] {44795}/ =>
-	q/* 286 FETCH (UID 39560 BODY[] {44795}/,
 '* 3928 NOT A RESPONSE' => '* 3928 NOT A RESPONSE',
 };
 
