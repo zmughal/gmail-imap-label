@@ -30,6 +30,26 @@ q/* 3928 FETCH (X-GM-LABELS ("its &- it's") UID 3928 RFC822.SIZE 409403 INTERNAL
 	q/* 3928 FETCH (UID 3928 RFC822.SIZE 409403 INTERNALDATE "22-Jun-2012 20:10:05 +0000" FLAGS (Old \Seen) BODY[HEADER.FIELDS (DATE FROM SUBJECT TO CC MESSAGE-ID REFERENCES CONTENT-TYPE CONTENT-DESCRIPTION IN-REPLY-TO REPLY-TO LINES LIST-POST X-LABEL)] {509}/.
 	Net::Gmail::IMAP::Label::Proxy::LINESEP.
 	q/X-Label: "its & it's"/,
+q/* 537 FETCH (X-GM-LABELS ("parens ()") UID 1471 BODY[] {873}/ =>
+	q/* 537 FETCH (UID 1471 BODY[] {895}/.
+	Net::Gmail::IMAP::Label::Proxy::LINESEP.
+	q/X-Label: "parens ()"/,
+q/* 14496 FETCH (X-GM-LABELS ("\\\\Sent" "(" "()") UID 25337 BODY[] {650}/ =>
+	q/* 14496 FETCH (UID 25337 BODY[] {669}/.
+	Net::Gmail::IMAP::Label::Proxy::LINESEP.
+	q/X-Label: "(" "()"/,
+q/* 537 FETCH (X-GM-LABELS ("zzzz\"" "\\\\Sent" "zzz)" "zz(") UID 1471 BODY[] {873}/ =>
+	q/* 537 FETCH (UID 1471 BODY[] {905}/.
+	Net::Gmail::IMAP::Label::Proxy::LINESEP.
+	q/X-Label: "zzzz\"" "zzz)" "zz("/,
+q/* 138 FETCH (X-GM-LABELS ("\\Important" "\\Sent" "\\") UID 36833 BODY[] {841}/ =>
+	q/* 138 FETCH (X-GM-LABELS ("\\\\Important" "\\\\Sent" "\\\\") UID 36833 BODY[] {858}/.
+	Net::Gmail::IMAP::Label::Proxy::LINESEP.
+	q/X-Label: "\\\\"/,
+q/* 283 FETCH (X-GM-LABELS (&- Test) UID 39557 BODY[] {10730}/ =>
+	q/* 283 FETCH (X-GM-LABELS (&- Test) UID 39557 BODY[] {10747}/.
+	Net::Gmail::IMAP::Label::Proxy::LINESEP.
+	q/X-Label: & Test/,
 '* 3928 NOT A RESPONSE' => '* 3928 NOT A RESPONSE',
 };
 
