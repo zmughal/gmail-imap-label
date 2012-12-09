@@ -55,8 +55,12 @@ q/* 283 FETCH (X-GM-LABELS (&- Test) UID 39557 BODY[] {10730}/ =>
 	Net::Gmail::IMAP::Label::Proxy::LINESEP.
 	q/X-Label: & Test/,
 q/* 286 FETCH (X-GM-LABELS () UID 39560 BODY[] {44795}/ =>
+	# empty labels should not generate X-Label
 	q/* 286 FETCH (UID 39560 BODY[] {44795}/,
-'* 3928 NOT A RESPONSE' => '* 3928 NOT A RESPONSE',
+'* 3928 NOT A RESPONSE' => '* 3928 NOT A RESPONSE', # Not a FETCH
+q/* 286 FETCH (X-GM-LABELS (Broken ")""") UID 39560 BODY[] {44795}/ =>
+	# this will not parse because two strings can not be adjacent
+	q/* 286 FETCH (X-GM-LABELS (Broken ")""") UID 39560 BODY[] {44795}/,
 };
 
 while (($key, $value) = each %$data) {
