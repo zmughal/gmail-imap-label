@@ -11,7 +11,7 @@ specified via a command-line option. To use the proxy you will need to set up
 your e-mail reader to connect to that port using the IMAP protocol (without
 SSL).
 
-# Dependencies
+# Runtime dependencies
 * GMail account
 * Perl (tested with 5.12.4, but should work with 5.10)
 * POE

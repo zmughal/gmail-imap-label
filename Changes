@@ -1,3 +1,6 @@
+0.006 2012-12-12 12:46:35-0600
+  - minimum version for Capture::Tiny
+
 0.005 2012-12-08 15:18:49-0600
   - more correct regex quantifier
 
