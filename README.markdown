@@ -25,6 +25,10 @@ For Debian:
 apt-get install libpoe-component-sslify-perl libregexp-common-perl libencode-imaputf7-perl libgetopt-long-descriptive-perl
 ```
 
+# See also
+* [Git repository](https://github.com/zmughal/gmail-imap-label)
+* [CPAN module](http://p3rl.org/Net::Gmail::IMAP::Label)
+
 # ACK
 Thanks to Paul DeCarlo <http://windotnet.blogspot.com/> for pointing out the
 Gmail IMAP extensions <http://code.google.com/apis/gmail/imap/#x-gm-labels>
