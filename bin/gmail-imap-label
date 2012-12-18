@@ -13,12 +13,11 @@ gmail-imap-label - IMAP proxy for Google's Gmail that retrieves message labels
 
 =head1 SYNOPSIS
 
- [options]
+  gmail-imap-label [-?hpv] [long options...]
 
- Options:
-   -p, --port port-number   set the local port for the proxy
-   -v, --verbose            set the verbosity level
-   -h, -?, --help           brief help message
+    -p --port       local port to connect to (default: 10143)
+    -v --verbose    increase verbosity (multiple flags for more verbosity)
+    -? -h --help    print usage message and exit
 
 =head1 OPTIONS
 
@@ -26,11 +25,11 @@ gmail-imap-label - IMAP proxy for Google's Gmail that retrieves message labels
 
 =item B<-p I<port-number>>, B<--port I<port-number>>
 
-Sets the local port for the IMAP proxy.
+Set the local port for the IMAP proxy. The default port is 10143.
 
 =item B<-v>, B<--verbose>
 
-Sets the verbosity level. Multiple flags increase the verbosity level
+Set the verbosity level. Multiple flags increase the verbosity level
 (e.g. -v, -vv, -vvv).
 
 =item B<-h>, B<-?>, B<--help>
