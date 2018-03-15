@@ -14,10 +14,10 @@ sub import {
 
 sub run {
 	my ($opts, $usage) = describe_options(
-	  "$0 %o",
-	  [ 'port|p=i',   "local port to connect to (default: @{[Net::Gmail::IMAP::Label::Proxy::DEFAULT_LOCALPORT]})", { default => Net::Gmail::IMAP::Label::Proxy::DEFAULT_LOCALPORT } ],
-	  [ 'verbose|v+',  "increase verbosity (multiple flags for more verbosity)" , { default => 0 } ],
-	  [ 'help|h|?',       "print usage message and exit" ],
+		"$0 %o",
+		[ 'port|p=i',   "local port to connect to (default: @{[Net::Gmail::IMAP::Label::Proxy::DEFAULT_LOCALPORT]})", { default => Net::Gmail::IMAP::Label::Proxy::DEFAULT_LOCALPORT } ],
+		[ 'verbose|v+', "increase verbosity (multiple flags for more verbosity)" , { default => 0 } ],
+		[ 'help|h|?',   "print usage message and exit" ],
 	);
 
 	if($opts->help) {
