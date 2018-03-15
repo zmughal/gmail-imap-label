@@ -1,19 +1,39 @@
 language: perl
-perl:
-   - "5.16"
-   - "5.14"
-   - "5.12"
-   - "5.10"
-
+cache:
+  directories:
+    # local::lib caching
+    - $HOME/perl5
+addons:
+  apt:
+    packages:
+      - aspell     # for dzil Test::PodSpelling
+      - aspell-en  # for dzil Test::PodSpelling
+matrix:
+  include:
+    - perl: "5.16"
+      os: linux
+      dist: trusty
+      sudo: false
+    - perl: "5.18"
+      env: COVERAGE=1   # enables coverage+coveralls reporting
+      os: linux
+      dist: trusty
+      sudo: false
+    - perl: "5.20"
+      os: linux
+      dist: trusty
+      sudo: false
+    - perl: "5.26"
+      os: linux
+      dist: trusty
+      sudo: false
+    - perl: "blead"
+      os: linux
+      dist: trusty
+      sudo: false
+  allow_failures:
+    - perl: blead       # ignore failures for blead perl
+sudo: false             # faster builds as long as you don't need sudo access
 before_install:
-   # Prevent "Please tell me who you are" errors for certain DZIL configs
-   - git config --global user.name "TravisCI"
-install:
-   # Deal with all of the DZIL dependancies, quickly and quietly
-   - cpanm --quiet --notest --skip-satisfied Dist::Zilla
-   - dzil authordeps | grep -vP '[^\w:]' | xargs -n 5 -P 10 cpanm --quiet --notest --skip-satisfied
-
-   - export RELEASE_TESTING=1 AUTOMATED_TESTING=1 AUTHOR_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1
-   - dzil listdeps | grep -vP '[^\w:]' | cpanm --verbose
-script:
-   - dzil smoke --release --author
+  - export DEVOPS_BRANCH="master"
+  - eval "$(curl https://raw.githubusercontent.com/project-renard/devops/$DEVOPS_BRANCH/script/helper.pl | perl -- | awk '/^#START/,/^#END/ { print > "/dev/stdout"; next } { print > "/dev/stderr"}' )"
