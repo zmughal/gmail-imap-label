@@ -143,7 +143,7 @@ sub put_label {
 	my $data = shift;
 	my $fetch_re = qr/^\* \d+ FETCH.*{\d+}$/;
 	my $label_re = qr/(?:[^() "]+)|$RE{delimited}{-delim=>'"'}/;
-	my $fetch_gm_label = qr/^(\* \d+ FETCH.*)(X-GM-LABELS \((?:(?:$label_re\s+)*$label_re)?\) ?)(.*){(\d+)}$/;
+	my $fetch_gm_label = qr/^(\* \d+ FETCH.*)(X-GM-LABELS \((?:(?:$label_re\s+)*$label_re)?\) ?)(.*)\{(\d+)\}$/;
 	if( $data =~ $fetch_gm_label ) {
 		my $octets = $4;
 		my $new_fetch = "$1$3";
