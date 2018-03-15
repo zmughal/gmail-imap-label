@@ -30,6 +30,6 @@ apt-get install libpoe-component-sslify-perl libregexp-common-perl libencode-ima
 * [CPAN module](http://p3rl.org/Net::Gmail::IMAP::Label)
 
 # ACK
-Thanks to Paul DeCarlo <http://windotnet.blogspot.com/> for pointing out the
-Gmail IMAP extensions <http://code.google.com/apis/gmail/imap/#x-gm-labels>
+Thanks to Paul DeCarlo <http://pjdecarlo.com/> for pointing out the
+Gmail IMAP extensions <https://developers.google.com/gmail/imap/imap-extensions#access_to_gmail_labels_x-gm-labels>
 that made this a whole lot easier than what I had originally planned on doing.

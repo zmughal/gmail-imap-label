@@ -1,4 +1,5 @@
 package Net::Gmail::IMAP::Label::Proxy;
+# ABSTRACT: Implementation of proxy logic for FETCH X-GM-LABELS
 
 use warnings;
 use strict;
