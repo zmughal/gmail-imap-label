@@ -1,34 +1,14 @@
-package Net::Gmail::IMAP::Label;
-# ABSTRACT: IMAP proxy for Google's Gmail that retrieves message labels
+=pod
 
-use strict;
-use warnings;
-use Net::Gmail::IMAP::Label::Proxy;
-use Getopt::Long::Descriptive;
+=encoding UTF-8
 
-sub import {
-	my ($class, @opts) = @_;
-	return unless (@opts == 1 && $opts[0] eq 'run');
-	$class->run;
-}
+=head1 NAME
 
-sub run {
-	my ($opts, $usage) = describe_options(
-		"$0 %o",
-		[ 'port|p=i',   "local port to connect to (default: @{[Net::Gmail::IMAP::Label::Proxy::DEFAULT_LOCALPORT]})", { default => Net::Gmail::IMAP::Label::Proxy::DEFAULT_LOCALPORT } ],
-		[ 'verbose|v+', "increase verbosity (multiple flags for more verbosity)" , { default => 0 } ],
-		[ 'help|h|?',   "print usage message and exit" ],
-	);
+Net::Gmail::IMAP::Label - IMAP proxy for Google's Gmail that retrieves message labels
 
-	if($opts->help) {
-		print($usage->text);
-		return 1;
-	}
+=head1 VERSION
 
-	Net::Gmail::IMAP::Label::Proxy->new(localport => $opts->port, verbose => $opts->verbose)->run();
-}
-
-1;
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -84,6 +64,16 @@ modify it under the terms of either:
 Thanks to L<Paul DeCarlo|http://pjdecarlo.com/> for pointing out the
 Gmail IMAP extensions.
 
-=cut
+=head1 AUTHOR
 
-# vim:ts=4:sw=4
+Zakariyya Mughal <zmughal@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2011 by Zakariyya Mughal <zmughal@cpan.org>.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0 (GPL Compatible)
+
+=cut

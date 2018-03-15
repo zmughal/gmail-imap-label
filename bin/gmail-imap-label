@@ -1,4 +1,7 @@
 #!/usr/bin/env perl
+# PODNAME: gmail-imap-label
+# ABSTRACT: IMAP proxy for Google's Gmail that retrieves message labels
+
 use strict;
 use warnings;
 use FindBin qw($Bin);
@@ -13,11 +16,11 @@ gmail-imap-label - IMAP proxy for Google's Gmail that retrieves message labels
 
 =head1 SYNOPSIS
 
-  gmail-imap-label [-?hpv] [long options...]
+    gmail-imap-label [-?hpv] [long options...]
 
-    -p --port       local port to connect to (default: 10143)
-    -v --verbose    increase verbosity (multiple flags for more verbosity)
-    -? -h --help    print usage message and exit
+      -p --port       local port to connect to (default: 10143)
+      -v --verbose    increase verbosity (multiple flags for more verbosity)
+      -? -h --help    print usage message and exit
 
 =head1 OPTIONS
 
@@ -40,7 +43,6 @@ Print a brief help message and exits.
 
 =head1 SEE ALSO
 
-Description of proxy available in L<Net::Gmail::IMAP::Label>
+Description of proxy available in L<Net::Gmail::IMAP::Label>.
 
 =cut
-
