@@ -95,7 +95,8 @@ modify it under the terms of either:
 =head1 ACKNOWLEDGMENTS
 
 Thanks to L<Paul DeCarlo|http://pjdecarlo.com/> for pointing out the
-Gmail IMAP extensions.
+Gmail IMAP extensions that made this a whole lot easier than what I had
+originally planned on doing.
 
 =cut
 
