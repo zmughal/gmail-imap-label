@@ -1,0 +1,65 @@
+{
+   "abstract" : "IMAP proxy for Google's Gmail that retrieves message labels",
+   "author" : [
+      "Zakariyya Mughal <zmughal@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 6.011, CPAN::Meta::Converter version 2.150010",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Net-Gmail-IMAP-Label",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0",
+            "perl" : "5.010"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : "0",
+            "Encode" : "0",
+            "Encode::IMAPUTF7" : "0",
+            "FindBin" : "0",
+            "Getopt::Long::Descriptive" : "0",
+            "POE" : "0",
+            "POE::Component::Client::TCP" : "0",
+            "POE::Component::SSLify" : "0",
+            "POE::Component::Server::TCP" : "0",
+            "POE::Filter::Map" : "0",
+            "POE::Filter::Stackable" : "0",
+            "Regexp::Common" : "0",
+            "constant" : "0",
+            "lib" : "0",
+            "perl" : "5.010",
+            "strict" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Capture::Tiny" : "0",
+            "Test::More" : "0",
+            "perl" : "5.010",
+            "utf8" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "https://github.com/zmughal/gmail-imap-label",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/zmughal/gmail-imap-label.git",
+         "web" : "https://github.com/zmughal/gmail-imap-label"
+      }
+   },
+   "version" : "0.008",
+   "x_serialization_backend" : "JSON::XS version 3.04"
+}
+

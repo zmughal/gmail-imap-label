@@ -1,0 +1,42 @@
+---
+abstract: "IMAP proxy for Google's Gmail that retrieves message labels"
+author:
+  - 'Zakariyya Mughal <zmughal@cpan.org>'
+build_requires:
+  Capture::Tiny: '0'
+  Test::More: '0'
+  perl: '5.010'
+  utf8: '0'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+  perl: '5.010'
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 6.011, CPAN::Meta::Converter version 2.150010'
+license: artistic_2
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Net-Gmail-IMAP-Label
+requires:
+  Carp: '0'
+  Encode: '0'
+  Encode::IMAPUTF7: '0'
+  FindBin: '0'
+  Getopt::Long::Descriptive: '0'
+  POE: '0'
+  POE::Component::Client::TCP: '0'
+  POE::Component::SSLify: '0'
+  POE::Component::Server::TCP: '0'
+  POE::Filter::Map: '0'
+  POE::Filter::Stackable: '0'
+  Regexp::Common: '0'
+  constant: '0'
+  lib: '0'
+  perl: '5.010'
+  strict: '0'
+  warnings: '0'
+resources:
+  homepage: https://github.com/zmughal/gmail-imap-label
+  repository: https://github.com/zmughal/gmail-imap-label.git
+version: '0.008'
+x_serialization_backend: 'YAML::Tiny version 1.70'
