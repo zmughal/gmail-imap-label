@@ -1,3 +1,22 @@
+0.008 2018-04-09 08:33:36-0400
+
+  Features
+
+   - Documentation updates.
+
+  Bug fixes
+
+   - Escape left and right literal braces in regex.
+     See <https://github.com/zmughal/gmail-imap-label/pull/4>.
+
+  Build changes
+
+   - Switch to using @Author::ZMUGHAL dzil plugin bundle.
+     See <https://github.com/zmughal/gmail-imap-label/pull/2>.
+
+   - Implement Travis CI continuous integration.
+     See <https://github.com/zmughal/gmail-imap-label/pull/3>
+
 0.007 2013-02-10 16:17:52-0600
   - add metadata to distribution
   - improve documentation
