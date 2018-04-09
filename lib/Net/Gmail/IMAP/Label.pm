@@ -56,6 +56,9 @@ An alternative port can be specified using the B<--port> option
 The proxy has been tested with both mutt (v1.5.21) and offlineimap (v6.3.4).
 Example configuration files for these are available in the C<doc> directory.
 
+With mutt, you may have to clear the header cache every so often so that any
+updated labels are available inside the UI.
+
 =head1 SEE ALSO
 
 See L<gmail-imap-label> for a complete listing of options.
