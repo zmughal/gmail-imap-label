@@ -59,6 +59,16 @@ Example configuration files for these are available in the C<doc> directory.
 With mutt, you may have to clear the header cache every so often so that any
 updated labels are available inside the UI.
 
+=head1 INSTALLATION
+
+You can either install the package from L<CPAN|http://p3rl.org/Net::Gmail::IMAP::Label>
+or from your package manager.
+
+To install the L<Debian package|https://packages.debian.org/libnet-gmail-imap-label-perl>,
+run
+
+    apt-get install libnet-gmail-imap-label-perl
+
 =head1 SEE ALSO
 
 See L<gmail-imap-label> for a complete listing of options.
