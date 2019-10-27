@@ -36,7 +36,7 @@ An alternative port can be specified using the B<--port> option
 The proxy has been tested with mutt (v1.5.21) as a MUA and both mbsync (v1.4.0)
 and offlineimap (v6.3.4) as mail synchronizers. Bear in mind that in order to
 use it with mbsync, you will need to compile mbsync from source
-`--without-libz`.
+--without-libz.
 Example configuration files for these are available in the C<doc> directory.
 
 With mutt, you may have to clear the header cache every so often so that any
