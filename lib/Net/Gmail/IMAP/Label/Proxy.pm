@@ -165,7 +165,7 @@ sub put_label {
 			$octets += length(encode_utf8($x_label))+length(LINESEP); # 2 more for line separator
 			$new_fetch .= "{$octets}";
 			$new_fetch .= LINESEP;
-			$new_fetch .= $x_label;
+			$new_fetch .= encode_utf8($x_label);
 		} else {
 			$new_fetch .= "{$octets}";
 		}
